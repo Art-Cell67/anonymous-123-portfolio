@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anonymous 123 — Web Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shared.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="nav-logo">Anon<span>123</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-tag">Web Designer for Businesses</span>
+    <h1>Your business deserves a <span class="highlight">website that works.</span></h1>
+    <p>I design clean, professional websites that help businesses attract clients, build trust, and grow online — without the tech headache.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">See What I Offer</a>
+      <a href="#contact" class="btn-ghost">Get a Free Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Sites Delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div>
+        <div class="stat-num">3 Days</div>
+        <div class="stat-label">Avg. Turnaround</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag">What I Do</div>
+    <div class="section-title">Services built for<br>business growth</div>
+    <p class="section-sub">Every service is designed to give your business a real online presence — not just a pretty page.</p>
+    <div class="services-grid">
+      <a href="service-website-design.html" class="service-card">
+        <h3>Business Website Design</h3>
+        <p>A fully custom website that reflects your brand, communicates your value, and turns visitors into customers.</p>
+        <span class="service-card-link">Learn more →</span>
+      </a>
+      <a href="service-mobile-friendly.html" class="service-card">
+        <h3>Mobile-Friendly Design</h3>
+        <p>Your site will look sharp and work flawlessly on every screen — phone, tablet, or desktop.</p>
+        <span class="service-card-link">Learn more →</span>
+      </a>
+      <a href="service-seo.html" class="service-card">
+        <h3>Fast & SEO-Ready</h3>
+        <p>Built for speed and search engines so your business shows up where it matters — at the top of Google.</p>
+        <span class="service-card-link">Learn more →</span>
+      </a>
+      <a href="service-maintenance.html" class="service-card">
+        <h3>Ongoing Maintenance</h3>
+        <p>I don't disappear after launch. Updates, fixes, and improvements — I've got you covered long-term.</p>
+        <span class="service-card-link">Learn more →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-visual">
+      <div class="about-box about-box-main">
+        <div class="about-monogram">A1</div>
+      </div>
+      <a href="about-story.html" class="about-badge">
+        <span>3+</span>
+        Years of experience
+      </a>
+    </div>
+    <div class="about-content">
+      <div class="section-tag">About Me</div>
+      <div class="section-title">I turn business ideas into real websites</div>
+      <p class="section-sub">Hi, I'm Anonymous 123 — a web designer focused on helping businesses of all sizes get online and stand out. I believe a great website should be easy to use, honest about what you offer, and built to last.</p>
+      <ul class="about-list">
+        <li>Custom designs — no cookie-cutter templates</li>
+        <li>Clear communication throughout the process</li>
+        <li>Delivered on time, every time</li>
+        <li>Affordable pricing for small businesses</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Work With Me</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="section-tag">Get In Touch</div>
+        <div class="section-title">Let's build your website</div>
+        <p>Have a project in mind? Send me a message and I'll get back to you within 24 hours with a free consultation.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">Mail</div>
+          <span>anonymous123@email.com</span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">Loc</div>
+          <span>Available Worldwide — Remote Only</span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">Time</div>
+          <span>Response within 24 hours</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="e.g. Ahmed Khan" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="business">Business Type</label>
+          <input type="text" id="business" placeholder="e.g. Restaurant, Salon, Law Firm" />
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me about your project</label>
+          <textarea id="message" placeholder="What kind of website do you need? Any features you have in mind?" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Anonymous 123. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
