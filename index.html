@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anonymous 123 — Web Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --blue: #1A8CFF;
@@ -244,6 +236,10 @@
       transition: border-color 0.25s, transform 0.2s;
       position: relative;
       overflow: hidden;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
 
     .service-card::before {
@@ -260,12 +256,6 @@
     .service-card:hover { border-color: var(--blue); transform: translateY(-4px); }
     .service-card:hover::before { transform: scaleX(1); }
 
-    .service-icon {
-      font-size: 2rem;
-      margin-bottom: 18px;
-      display: block;
-    }
-
     .service-card h3 {
       font-family: var(--font-display);
       font-size: 1.15rem;
@@ -277,6 +267,15 @@
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    .service-card-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     /* ── ABOUT ── */
@@ -326,7 +325,12 @@
       font-family: var(--font-display);
       font-size: 0.85rem;
       font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
     }
+
+    .about-badge:hover { background: var(--blue-dim); transform: translateY(-2px); }
 
     .about-badge span {
       display: block;
@@ -492,174 +496,262 @@
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
     }
-  </style>
-</head>
-<body>
+/* ── SUBPAGE SHARED STYLES ── */
+.back-home {
+  position: fixed;
+  top: 18px;
+  right: 6vw;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: 99px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
 
-  <!-- NAVBAR -->
-  <nav>
-    <a href="#" class="nav-logo">Anon<span>123</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-    </ul>
-  </nav>
+.back-home:hover {
+  border-color: var(--blue);
+  background: var(--surface);
+  transform: translateY(-2px);
+}
 
-  <!-- HERO -->
-  <section class="hero">
-    <span class="hero-tag">Web Designer for Businesses</span>
-    <h1>Your business deserves a <span class="highlight">website that works.</span></h1>
-    <p>I design clean, professional websites that help businesses attract clients, build trust, and grow online — without the tech headache.</p>
-    <div class="hero-btns">
-      <a href="#services" class="btn-primary">See What I Offer</a>
-      <a href="#contact" class="btn-ghost">Get a Free Quote</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Sites Delivered</div>
-      </div>
-      <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Client Satisfaction</div>
-      </div>
-      <div>
-        <div class="stat-num">3 Days</div>
-        <div class="stat-label">Avg. Turnaround</div>
-      </div>
-    </div>
-  </section>
+.back-home-arrow { font-family: var(--font-display); font-weight: 700; }
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-tag">What I Do</div>
-    <div class="section-title">Services built for<br>business growth</div>
-    <p class="section-sub">Every service is designed to give your business a real online presence — not just a pretty page.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-icon">🖥️</span>
-        <h3>Business Website Design</h3>
-        <p>A fully custom website that reflects your brand, communicates your value, and turns visitors into customers.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">📱</span>
-        <h3>Mobile-Friendly Design</h3>
-        <p>Your site will look sharp and work flawlessly on every screen — phone, tablet, or desktop.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">⚡</span>
-        <h3>Fast & SEO-Ready</h3>
-        <p>Built for speed and search engines so your business shows up where it matters — at the top of Google.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🔧</span>
-        <h3>Ongoing Maintenance</h3>
-        <p>I don't disappear after launch. Updates, fixes, and improvements — I've got you covered long-term.</p>
-      </div>
-    </div>
-  </section>
+.page-hero {
+  min-height: 46vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 140px 6vw 60px;
+  position: relative;
+  overflow: hidden;
+}
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-visual">
-      <div class="about-box about-box-main">
-        <div class="about-monogram">A1</div>
-      </div>
-      <div class="about-badge">
-        <span>3+</span>
-        Years of experience
-      </div>
-    </div>
-    <div class="about-content">
-      <div class="section-tag">About Me</div>
-      <div class="section-title">I turn business ideas into real websites</div>
-      <p class="section-sub">Hi, I'm Anonymous 123 — a web designer focused on helping businesses of all sizes get online and stand out. I believe a great website should be easy to use, honest about what you offer, and built to last.</p>
-      <ul class="about-list">
-        <li>Custom designs — no cookie-cutter templates</li>
-        <li>Clear communication throughout the process</li>
-        <li>Delivered on time, every time</li>
-        <li>Affordable pricing for small businesses</li>
-      </ul>
-      <a href="#contact" class="btn-primary">Work With Me</a>
-    </div>
-  </section>
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrap">
-      <div class="contact-info">
-        <div class="section-tag">Get In Touch</div>
-        <div class="section-title">Let's build your website</div>
-        <p>Have a project in mind? Send me a message and I'll get back to you within 24 hours with a free consultation.</p>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">📧</div>
-          <span>anonymous123@email.com</span>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">📍</div>
-          <span>Available Worldwide — Remote Only</span>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">⏱️</div>
-          <span>Response within 24 hours</span>
-        </div>
-      </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="e.g. Ahmed Khan" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="you@example.com" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="business">Business Type</label>
-          <input type="text" id="business" placeholder="e.g. Restaurant, Salon, Law Firm" />
-        </div>
-        <div class="form-group">
-          <label for="message">Tell me about your project</label>
-          <textarea id="message" placeholder="What kind of website do you need? Any features you have in mind?" required></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send Message →</button>
-      </form>
-    </div>
-  </section>
+.page-hero .hero-tag { margin-bottom: 24px; }
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Anonymous 123. All rights reserved.</p>
-    <ul class="footer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </footer>
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#16a34a';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-        btn.disabled = false;
-        e.target.reset();
-      }, 3000);
-    }
+.page-hero h1 .highlight { color: var(--blue); }
 
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-  </script>
-</body>
-</html>
+.page-hero p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+.content-section { padding: 20px 6vw 100px; max-width: 1100px; }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin: 40px 0 60px;
+}
+
+.feature-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.feature-item h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--blue);
+}
+
+.feature-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px 0 60px;
+}
+
+.process-step {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.process-step:last-child { border-bottom: none; }
+
+.process-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--blue);
+  opacity: 0.5;
+  min-width: 48px;
+}
+
+.process-step h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.process-step p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+/* Portfolio page */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 40px 0 80px;
+}
+
+.portfolio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  transition: border-color 0.25s, transform 0.2s;
+}
+
+.portfolio-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+
+.portfolio-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.portfolio-site-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.portfolio-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.portfolio-quote {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+.portfolio-client {
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.portfolio-client strong { color: var(--text); font-weight: 600; }
+
+/* About story page */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px 0 60px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 1rem;
+}
+
+.timeline-item h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.timeline-item p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 40px 0 60px;
+}
+
+.skill-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cta-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 48px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cta-banner h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.cta-banner p { color: var(--muted); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 600px) {
+  .back-home { right: 5vw; top: 14px; padding: 7px 14px; font-size: 0.8rem; }
+  .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+}
